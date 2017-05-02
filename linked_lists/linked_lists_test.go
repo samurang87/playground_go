@@ -79,5 +79,35 @@ func TestRemoveMiddleNode(t *testing.T) {
 		t.Error("Wanted %q, got %q", want, got)
 	}
 
+}
+
+func TestReverse(t *testing.T){
+
+	a_node := &Node{data:"string a"}
+
+	b_node := &Node{data:"string b"}
+
+	c_node := &Node{data:"string c"}
+
+	linkedlist := LinkedList{}
+
+	linkedlist.Stack(a_node)
+
+	linkedlist.Stack(b_node)
+
+	linkedlist.Stack(c_node)
+
+	linkedlist.Reverse()
+
+	got := linkedlist.head.data
+
+	want := "string a"
+
+	if got != want {
+
+		t.Error("Wanted %q, got %q", want, got)
+	}
+
+
 
 }
