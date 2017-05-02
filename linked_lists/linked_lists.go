@@ -18,3 +18,37 @@ func (l *LinkedList) Stack(new_node *Node) {
 	l.head = new_node
 
 }
+
+func (l *LinkedList) Remove(to_be_removed *Node) {
+
+	// if the current head is the one to be removed
+
+	if l.head == to_be_removed {
+
+		// point the head to its next
+
+		l.head = to_be_removed.next
+
+	} else {
+
+		current_node := l.head
+
+		var next_node *Node
+
+		for {
+			next_node = current_node.next
+
+			if next_node == to_be_removed {
+
+				break
+
+			} else {
+
+				current_node = next_node
+			}
+		}
+
+		current_node.next = next_node.next
+	}
+
+}
