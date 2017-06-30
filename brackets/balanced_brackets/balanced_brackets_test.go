@@ -28,3 +28,16 @@ func TestStackUnbalanced(t *testing.T) {
 
 	}
 }
+
+func TestOpenStack(t *testing.T) {
+
+	got := Balance("(")
+
+	want := false
+
+	if got != want {
+
+		t.Errorf("Should be %v but is %v", want, got)
+
+	}
+}

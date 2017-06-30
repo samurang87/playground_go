@@ -105,9 +105,15 @@ func Balance(brackets string) bool {
 
 
 		}
+
 	}
 
-	return true
+	if stack.isEmpty() {
+
+		return true
+
+	} else {
+
+		return false
+	}
 }
-
-
