@@ -2,24 +2,46 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"github.com/samurang87/playground_go/brackets/balanced_brackets"
 )
 
+
+func Read() ([]string, error) {
+	var length int
+
+	_, err := fmt.Scanf("%d", &length)
+	if err != nil {
+		return nil, err
+	}
+
+	list := make([]string, length)
+
+	for i := 0; i < len(list); i++ {
+		_, err := fmt.Scanf("%v", &list[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+
+	return list, nil
+}
+
+
 func main() {
 
-	var a int
-	var b string
+	list, err := Read()
 
-	fmt.Scanf("%d\n", &a)
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	for i := 0; i < a; i++ {
+	for _, item := range list {
 
-		fmt.Scanf("%s\n", &b)
 
-		response := balanced_brackets.Balance(b)
+		response := balanced_brackets.Balance(item)
 
 		if response == true {
-
 			fmt.Println("YES")
 
 		} else {
