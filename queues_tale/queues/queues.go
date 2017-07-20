@@ -25,14 +25,22 @@ func (q Queue) isEmpty() bool {
 	}
 }
 
-func (q *Queue) Enqueue(n *Node) {
+func (q *Queue) enqueue(n *Node) {
 
-	q.tail.next = n
-	q.tail = n
+	if q.isEmpty() {
+		q.head = n
+		q.tail = n
+
+	} else {
+
+		q.tail.next = n
+		q.tail = n
+
+	}
 
 }
 
-func (q *Queue) Dequeue() (error){
+func (q *Queue) dequeue() (error){
 
 	if q.isEmpty() {
 
@@ -47,8 +55,44 @@ func (q *Queue) Dequeue() (error){
 }
 
 
-func (q *Queue) Print() {
+func (q *Queue) printHead() {
 
 	fmt.Println(q.head.data)
 
+}
+
+func (q *Queue) ExecuteFunction(l []string) {
+
+	/*
+	1 x: enqueue element  into the end of the queue.
+	2: dequeue the element at the front of the queue.
+	3: printHead the element at the front of the queue.
+	*/
+
+	switch length := len(l); length {
+
+	case 2:
+
+		v := l[1]
+
+		n := new(Node)
+		n.data = v
+
+		q.enqueue(n)
+
+	case 1:
+
+		switch l[0] {
+
+		case "2":
+
+			q.dequeue()
+
+		case "3":
+
+			q.printHead()
+
+		}
+
+	}
 }
