@@ -1,43 +1,35 @@
 package main
 
 import (
-	"fmt"
-	"log"
+	"bufio"
+	"os"
+	"github.com/samurang87/playground_go/queues_tale/queues"
+	"strings"
 )
 
-func Read() ([]string, error) {
-	var length int
+func Read() (input []string){
 
-	_, err := fmt.Scanf("%d", &length)
-	if err != nil {
-		return nil, err
+	scanner := bufio.NewScanner(os.Stdin)
+
+	for scanner.Scan() {
+
+		input = append(input, scanner.Text())
 	}
 
-	list := make([]string, length)
-
-	for i := 0; i < len(list); i++ {
-		_, err := fmt.Scanf("%v", &list[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-
-	return list, nil
+	return input
 }
 
 func main() {
 
-	list, err := Read()
+	input := Read()
 
-	if err != nil {
-		log.Fatal(err)
+	for _, item := range input[1:] {
+
+		var q queues.Queue
+
+		q.ExecuteFunction(strings.Split(item, " "))
+		
 	}
 
-	for _, item := range list {
-
-
-		fmt.Println(item)
-
-		}
 
 	}
