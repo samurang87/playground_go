@@ -3,6 +3,8 @@ package queues
 import (
 	"errors"
 	"fmt"
+	"bufio"
+	"os"
 )
 
 type Queue struct {
@@ -49,9 +51,16 @@ func (q *Queue) dequeue() (error){
 	} else {
 
 		q.head = q.head.next
+
+		if q.head == nil {
+
+			q.tail = nil
+
+		}
 	}
 
 	return nil
+
 }
 
 
@@ -96,3 +105,16 @@ func (q *Queue) ExecuteFunction(l []string) {
 
 	}
 }
+
+func Read() (input []string){
+
+	scanner := bufio.NewScanner(os.Stdin)
+
+	for scanner.Scan() {
+
+		input = append(input, scanner.Text())
+	}
+
+	return input
+}
+
