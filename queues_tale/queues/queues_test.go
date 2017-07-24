@@ -34,4 +34,37 @@ func TestDequeue(t *testing.T) {
 	}
 }
 
+func TestPrint(t *testing.T) {
 
+	var q Queue
+	q.ExecuteFunction([]string{"1", "node_a"})
+	q.ExecuteFunction([]string{"1", "node_b"})
+	q.ExecuteFunction([]string{"2"})
+	q.ExecuteFunction([]string{"3"})
+
+}
+
+func TestWithHackerrankInput(t *testing.T) {
+
+	input := [][]string{
+		{"1", "42"},
+		{"2"},
+		{"1", "14"},
+		{"3"},
+		{"1", "28"},
+		{"3"},
+		{"1", "60"},
+		{"1", "78"},
+		{"2"},
+		{"2"},
+	}
+
+	var q Queue
+
+	for _, list := range input {
+
+		q.ExecuteFunction(list)
+
+	}
+
+}
