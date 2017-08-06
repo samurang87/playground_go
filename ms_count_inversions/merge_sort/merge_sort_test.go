@@ -15,6 +15,20 @@ func TestEven(t *testing.T) {
 
 }
 
+func TestOdd(t *testing.T) {
+
+	i := []int{1, 6, 3, 4, 2}
+
+	r := []int{1, 2, 3, 4, 6}
+
+	if testEq(i, r) == false {
+
+		t.Errorf("The result should be %v, got %v instead", r, i)
+	}
+
+
+}
+
 func TestOrderedSad(t *testing.T) {
 
 	a := isOrdered([]int{1, 6, 3, 4})
@@ -34,8 +48,6 @@ func TestOrderedHappy(t *testing.T) {
 		t.Errorf("Is {1, 3, 4, 6} ordered? Should be true, got %v", b)
 	}
 }
-
-
 
 func testEq(a, b []int) bool {
 
