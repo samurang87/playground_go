@@ -1,6 +1,11 @@
 package merge_sort
 
-func Merge(a []int, b []int) (c []int){
+type MergeCounter struct {
+
+	counter int
+}
+
+func (mc *MergeCounter) Merge(a []int, b []int) (c []int){
 
 	for {
 
@@ -20,6 +25,7 @@ func Merge(a []int, b []int) (c []int){
 
 		} else {
 
+			mc.counter = mc.counter +1
 			c = append(c, b[0])
 			b = b[1:]
 
@@ -27,46 +33,29 @@ func Merge(a []int, b []int) (c []int){
 
 	}
 
-
 }
 
-func Sort(a []int) (b []int) {
+func (mc *MergeCounter) Sort(a []int) (b []int) {
 
-	if len(a) == 1 || isOrdered(a) {
+	if len(a) == 1 {
 
 		return a
 
-	} else if len(a) == 2 {
-
-		{
-
-			return []int{a[1], a[0]}
-		}
-
 	} else {
 
-		return Merge(Sort(a[len(a)/2:]), Sort(a[:len(a)/2]))
-
+		//fmt.Println(a[:len(a)/2 + len(a) % 2], a[len(a)/2 + len(a) % 2:])
+		return mc.Merge(mc.Sort(a[:len(a)/2 + len(a) % 2]), mc.Sort(a[len(a)/2 + len(a) % 2:]))
 	}
 
 }
 
-func isOrdered(a []int) bool {
+func CountInversions (a []int) (r int) {
 
-	l := len(a) -1
+	mc := MergeCounter{counter:0}
 
-	for i := 0; i < l; i++ {
+	mc.Sort(a)
 
-		if a[i] > a[i+1] {
-
-			return false
-
-		} else {
-
-			continue
-		}
-	}
-
-	return true
+	return mc.counter
 
 }
+

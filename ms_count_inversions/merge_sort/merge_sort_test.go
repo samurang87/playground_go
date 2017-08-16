@@ -7,58 +7,69 @@ import (
 
 func TestEven(t *testing.T) {
 
-	i := []int{1, 6, 3, 4}
+	var mc MergeCounter
 
-	r := []int{1, 3, 4, 6}
+	a := []int{11, 1, 6, 3, 99, 123, 4}
+
+	r := []int{1, 3, 4, 6, 11, 99, 123}
 
 
-	if testEq(Sort(i), r) == false {
+	if testEq(mc.Sort(a), r) == false {
 
-		t.Errorf("The result should be %v, got %v instead", r, i)
+		t.Errorf("The result should be %v, got %v instead", r, a)
 	}
 
 }
 
 func TestOdd(t *testing.T) {
 
-	i := []int{1, 6, 3, 4, 2}
+	var mc MergeCounter
+
+	a := []int{1, 6, 3, 4, 2}
 
 	r := []int{1, 2, 3, 4, 6}
 
-	if testEq(Sort(i), r) == false {
+	if testEq(mc.Sort(a), r) == false {
 
-		t.Errorf("The result should be %v, got %v instead", r, i)
+		t.Errorf("The result should be %v, got %v instead", r, a)
 	}
-
 
 }
 
-func TestOrderedSad(t *testing.T) {
+func TestZeroInversions(t *testing.T) {
 
-	a := isOrdered([]int{1, 6, 3, 4})
+	got := CountInversions([]int{1, 1, 2, 2, 2})
 
-	if a == true {
+	want := 0
 
-		t.Errorf("Is {1, 6, 3, 4} ordered? Should be false, got %v", a)
+	if want != got {
+
+		t.Errorf("Wanted %v, got %v", want, got)
 	}
+
 }
 
-func TestOrderedHappy(t *testing.T) {
+func TestSomeInversions(t *testing.T) {
 
-	b := isOrdered([]int{1, 3, 4, 6})
+	got := CountInversions([]int{2, 1, 3, 1, 2})
 
-	if b == false {
+	want := 4
 
-		t.Errorf("Is {1, 3, 4, 6} ordered? Should be true, got %v", b)
+	if want != got {
+
+		t.Errorf("Wanted %v, got %v", want, got)
 	}
+
 }
 
 func TestMerge(t *testing.T) {
 
+	var mc MergeCounter
+
 	a := []int{1, 3, 5, 7}
 	b := []int{2, 4, 6, 8}
 
-	got := Merge(a, b)
+	got := mc.Merge(a, b)
 	want := []int{1, 2, 3, 4, 5, 6, 7, 8}
 
 	if testEq(got, want) == false {
