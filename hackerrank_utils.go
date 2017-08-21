@@ -4,6 +4,8 @@ import (
 	"bufio"
 	"os"
 	"fmt"
+	"strconv"
+	"strings"
 )
 
 func Read() (input []string){
@@ -42,4 +44,18 @@ func TestEq(a, b []int) bool {
 	}
 
 	return true
+}
+
+func ListIntToStr(n []int) (s string){
+
+	var ids []string
+
+	for _, i := range n {
+
+		ids = append(ids, strconv.Itoa(i))
+	}
+
+	s = strings.Join(ids, " ")
+
+	return
 }
