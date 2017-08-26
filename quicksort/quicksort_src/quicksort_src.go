@@ -1,10 +1,10 @@
 package quicksort_src
 
-func Partition(unsorted []int) (partitioned []int){
+import "fmt"
+
+func Partition(unsorted []int) (left []int, mid []int,  right []int){
 
 	pivot := unsorted[0]
-
-	var left, mid, right []int
 
 	for _, item := range unsorted {
 
@@ -23,12 +23,34 @@ func Partition(unsorted []int) (partitioned []int){
 		}
 	}
 
-	partitioned = append(partitioned, left...)
-
-	partitioned = append(partitioned, mid...)
-
-	partitioned = append(partitioned, right...)
-
 	return
 
+}
+
+func merge(collection [][]int) (merged []int) {
+
+	for _, list := range(collection) {
+
+		merged = append(merged, list...)
+
+	}
+
+	return
+}
+
+func Quicksort(ar []int) (sorted []int){
+
+	fmt.Println(ar)
+
+	if len(ar) == 1 {
+
+		return ar
+
+	} else {
+
+		left, mid, right := Partition(ar)
+
+		return merge([][]int{Quicksort(left), Quicksort(mid), Quicksort(right)})
+
+	}
 }
