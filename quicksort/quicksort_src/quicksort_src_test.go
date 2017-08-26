@@ -22,6 +22,40 @@ func TestPartitionRegularCase(t *testing.T) {
 
 }
 
+func TestPartitionSingleElement(t *testing.T)  {
+
+	input := []int{1}
+
+	want := []int{1}
+
+	got_left, got_mid, got_right := Partition(input)
+
+	got := merge([][]int{got_left, got_mid, got_right})
+
+	if hackerrank_utils.TestEq(want, got) == false {
+
+		t.Errorf("Wanted %v, got %v", want, got)
+	}
+
+}
+
+func TestPartitionTwoElements(t *testing.T)  {
+
+	input := []int{1, 2}
+
+	want := []int{1, 2}
+
+	got_left, got_mid, got_right := Partition(input)
+
+	got := merge([][]int{got_left, got_mid, got_right})
+
+	if hackerrank_utils.TestEq(want, got) == false {
+
+		t.Errorf("Wanted %v, got %v", want, got)
+	}
+
+}
+
 func TestQuicksortRegularCase(t *testing.T){
 
 	input := []int{4, 5, 3, 7, 2}

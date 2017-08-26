@@ -42,7 +42,7 @@ func Quicksort(ar []int) (sorted []int){
 
 	fmt.Println(ar)
 
-	if len(ar) == 1 {
+	if len(ar) <= 1 {
 
 		return ar
 
