@@ -30,7 +30,9 @@ func main() {
 			n = append(n, num)
 		}
 
-		fmt.Println(hackerrank_utils.ListIntToStr(quicksort_src.Partition(n)))
+		sorted_n := quicksort_src.Quicksort(n)
+
+		fmt.Println(hackerrank_utils.ListIntToStr(sorted_n))
 
 	}
 
