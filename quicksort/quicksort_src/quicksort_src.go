@@ -1,8 +1,11 @@
 package quicksort_src
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/samurang87/playground_go"
+)
 
-func Partition(unsorted []int) (left []int, mid []int,  right []int){
+func Partition(unsorted []int) (left []int, mid []int, right []int) {
 
 	pivot := unsorted[0]
 
@@ -29,7 +32,11 @@ func Partition(unsorted []int) (left []int, mid []int,  right []int){
 
 func merge(collection [][]int) (merged []int) {
 
-	for _, list := range(collection) {
+	for _, list := range collection {
+
+		if len(list) > 1 {
+			fmt.Println(hackerrank_utils.ListIntToStr(list))
+		}
 
 		merged = append(merged, list...)
 
@@ -38,9 +45,7 @@ func merge(collection [][]int) (merged []int) {
 	return
 }
 
-func Quicksort(ar []int) (sorted []int){
-
-	fmt.Println(ar)
+func Quicksort(ar []int) (sorted []int) {
 
 	if len(ar) <= 1 {
 

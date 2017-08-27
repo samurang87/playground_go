@@ -58,9 +58,9 @@ func TestPartitionTwoElements(t *testing.T)  {
 
 func TestQuicksortRegularCase(t *testing.T){
 
-	input := []int{4, 5, 3, 7, 2}
+	input := []int{5, 8, 1, 3, 7, 9, 2}
 
-	want := []int{2, 3, 4, 5, 7}
+	want := []int{1, 2, 3, 5, 7, 8, 9}
 
 	got := Quicksort(input)
 
