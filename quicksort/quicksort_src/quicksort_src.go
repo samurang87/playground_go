@@ -55,7 +55,7 @@ func Quicksort(ar []int) (sorted []int) {
 
 		left, mid, right := Partition(ar)
 
-		return merge([][]int{Quicksort(left), Quicksort(mid), Quicksort(right)})
+		return merge([][]int{Quicksort(left), mid, Quicksort(right)})
 
 	}
 }

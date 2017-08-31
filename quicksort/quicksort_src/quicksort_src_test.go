@@ -69,3 +69,17 @@ func TestQuicksortRegularCase(t *testing.T){
 		t.Errorf("Wanted %v, got %v", want, got)
 	}
 }
+
+func TestQuicksortDifficult(t *testing.T){
+
+	input := []int{233, 3, 68, 243, 12, 83, 222, 22, 191, 12, 394, 12, 33, 411}
+
+	got := Quicksort(input)
+
+	want := []int{3, 12, 12, 12, 22, 33, 68, 83, 191, 222, 233, 243, 394, 411}
+
+	if hackerrank_utils.TestEq(want, got) == false {
+
+		t.Errorf("Wanted %v, got %v", want, got)
+	}
+}
