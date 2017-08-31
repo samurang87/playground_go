@@ -24,3 +24,7 @@ _testmain.go
 *.prof
 
 .idea/
+
+quicksort/example_input_2.txt
+quicksort/example_output_2.txt
+quicksort/output_2.txt
