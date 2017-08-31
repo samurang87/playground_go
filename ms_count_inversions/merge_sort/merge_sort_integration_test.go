@@ -1,16 +1,16 @@
-package main
+package merge_sort
 
 import (
 	"strings"
 	"strconv"
 	"fmt"
-	"github.com/samurang87/playground_go/ms_count_inversions/merge_sort"
+	"testing"
 	"github.com/samurang87/playground_go"
 )
 
-func main() {
+func TestIntegration(t *testing.T) {
 
-	input := hackerrank_utils.Read()
+	input := hackerrank_utils.ReadFromStdinLikeFile("../example_input_2.txt")
 
 	for i, item := range input[1:] {
 
@@ -32,12 +32,11 @@ func main() {
 				n = append(n, num)
 			}
 
-			fmt.Println(merge_sort.CountInversions(n))
+			fmt.Println(CountInversions(n))
 
 		}
 
 	}
 
 }
-
 

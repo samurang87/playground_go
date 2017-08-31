@@ -2,7 +2,7 @@ package merge_sort
 
 import (
 	"testing"
-	"fmt"
+	"github.com/samurang87/playground_go"
 )
 
 func TestEven(t *testing.T) {
@@ -14,7 +14,7 @@ func TestEven(t *testing.T) {
 	r := []int{1, 3, 4, 6, 11, 99, 123}
 
 
-	if testEq(mc.Sort(a), r) == false {
+	if hackerrank_utils.TestEq(mc.Sort(a), r) == false {
 
 		t.Errorf("The result should be %v, got %v instead", r, a)
 	}
@@ -29,7 +29,7 @@ func TestOdd(t *testing.T) {
 
 	r := []int{1, 2, 3, 4, 6}
 
-	if testEq(mc.Sort(a), r) == false {
+	if hackerrank_utils.TestEq(mc.Sort(a), r) == false {
 
 		t.Errorf("The result should be %v, got %v instead", r, a)
 	}
@@ -72,35 +72,9 @@ func TestMerge(t *testing.T) {
 	got := mc.Merge(a, b)
 	want := []int{1, 2, 3, 4, 5, 6, 7, 8}
 
-	if testEq(got, want) == false {
+	if hackerrank_utils.TestEq(got, want) == false {
 
 		t.Errorf("Wanted %v, got %v", want, got)
 	}
 
-}
-
-func testEq(a, b []int) bool {
-
-	if a == nil && b == nil {
-		return true
-	}
-
-	if a == nil || b == nil {
-		fmt.Println("One is nil and one is not!")
-		return false
-	}
-
-	if len(a) != len(b) {
-		fmt.Println("Oh noes, lengths differ!")
-		return false
-	}
-
-	for i := range a {
-		if a[i] != b[i] {
-			fmt.Println("Oh noes, %v and %v have different elements!", a, b)
-			return false
-		}
-	}
-
-	return true
 }

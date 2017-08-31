@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
+	"log"
 )
 
 func Read() (input []string){
@@ -19,6 +20,25 @@ func Read() (input []string){
 
 	return input
 }
+
+func ReadFromStdinLikeFile(path string) (input []string){
+
+	file, err := os.Open(path)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer file.Close()
+
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		input = append(input, scanner.Text())
+	}
+
+	if err := scanner.Err(); err != nil {
+		log.Fatal(err)
+	}
+}
+
 
 func TestEq(a, b []int) bool {
 

@@ -7,6 +7,9 @@ type MergeCounter struct {
 
 func (mc *MergeCounter) Merge(a []int, b []int) (c []int){
 
+	if len(a) == 1 && len(b) == 1 && a[0] > b[0] {
+		mc.counter = mc.counter +1
+	}
 	for {
 
 		if len(a) == 0 {
