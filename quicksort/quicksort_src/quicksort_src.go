@@ -34,14 +34,9 @@ func merge(collection [][]int) (merged []int) {
 
 	for _, list := range collection {
 
-		if len(list) > 1 {
-			fmt.Println(hackerrank_utils.ListIntToStr(list))
-		}
-
 		merged = append(merged, list...)
-
 	}
-
+	fmt.Println(hackerrank_utils.ListIntToStr(merged))
 	return
 }
 
