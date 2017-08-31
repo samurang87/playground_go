@@ -2,7 +2,6 @@ package main
 
 import (
 	"strings"
-	"fmt"
 	"github.com/samurang87/playground_go"
 	"github.com/samurang87/playground_go/quicksort/quicksort_src"
 	"strconv"
@@ -30,7 +29,9 @@ func main() {
 			n = append(n, num)
 		}
 
-		fmt.Println(hackerrank_utils.ListIntToStr(quicksort_src.Partition(n)))
+		q := quicksort_src.Quicksort(n)
+
+		_ = q
 
 	}
 
