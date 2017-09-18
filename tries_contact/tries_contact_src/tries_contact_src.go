@@ -72,6 +72,9 @@ func (node *Node) FindPartial(word string) {
 		}
 
 
+	} 	else {
+
+		fmt.Println(0)
 	}
 
 
