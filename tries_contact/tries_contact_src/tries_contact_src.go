@@ -34,6 +34,8 @@ func (node *Node) AddEntry(word string){
 		endChild.Character = "*"
 
 		newChild.Children = append(newChild.Children, endChild)
+
+		newChild.CountTraversed++
 	}
 
 }
