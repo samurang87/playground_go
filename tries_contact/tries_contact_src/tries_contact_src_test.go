@@ -1,5 +1,6 @@
 package tries_contact_src
 
+<<<<<<< HEAD
 import "strings"
 
 type Trie struct {
@@ -30,3 +31,21 @@ func (trie *Node) AddEntry(word string){
 	}
 
 }
+=======
+import (
+	"fmt"
+	"testing"
+)
+
+func TestAddSingleWord(t *testing.T){
+
+	var trie Node
+
+	trie.AddEntry("bla")
+
+	for _, child := range(trie.Children) {
+
+		fmt.Println(child.Character)
+	}
+}
+>>>>>>> fdacb60b3e002801d6e3082a51a143ed7811ad72
