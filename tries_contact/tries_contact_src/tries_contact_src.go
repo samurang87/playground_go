@@ -14,7 +14,7 @@ func (node *Node) AddEntry(word string){
 
 	node.CountTraversed++
 
-	isChild, newChild := isChild(char,node)
+	isChild, newChild := isChild(char, node)
 
 	if ! isChild {
 
@@ -29,7 +29,7 @@ func (node *Node) AddEntry(word string){
 
 	} else {
 
-		var endChild *Node
+		var endChild = new(Node)
 
 		endChild.Character = "*"
 
@@ -49,7 +49,9 @@ func isChild(char string, node *Node) (result bool, next *Node){
 
 	}
 
-	return false, nil
+	var newChild = new(Node)
+
+	return false, newChild
 }
 
 func (node *Node) FindPartial(word string) {
