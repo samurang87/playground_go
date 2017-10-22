@@ -1,6 +1,5 @@
 package hash_ransom
 
-
 func CreateMap(text_list []string) map[string]int {
 
 	text_map := make(map[string]int)
@@ -21,8 +20,7 @@ func CreateMap(text_list []string) map[string]int {
 	return text_map
 }
 
-
-func CompareMaps(magazine map[string]int, note map[string]int) (result bool){
+func CompareMaps(magazine map[string]int, note map[string]int) (result bool) {
 
 	for key, _ := range note {
 

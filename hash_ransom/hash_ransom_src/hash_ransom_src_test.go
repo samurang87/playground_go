@@ -26,7 +26,6 @@ func TestCreateMaps(t *testing.T) {
 		t.Errorf("Not equal! Expected %v, got %v", expected_result, text_map)
 	}
 
-
 }
 
 func TestCompareMapsHappy(t *testing.T) {
@@ -42,7 +41,6 @@ func TestCompareMapsHappy(t *testing.T) {
 
 		"a": 3,
 		"b": 2,
-
 	}
 
 	result := CompareMaps(magazine, note)
@@ -68,7 +66,6 @@ func TestCompareMapsKeyMissing(t *testing.T) {
 		"a": 3,
 		"b": 2,
 		"d": 3,
-
 	}
 
 	result := CompareMaps(magazine, note)
@@ -94,7 +91,6 @@ func TestCompareMapsInsufficientNumberOfWords(t *testing.T) {
 		"a": 3,
 		"b": 2,
 		"c": 3,
-
 	}
 
 	result := CompareMaps(magazine, note)

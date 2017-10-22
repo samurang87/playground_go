@@ -1,10 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"github.com/samurang87/playground_go"
 	"github.com/samurang87/playground_go/hash_ransom/hash_ransom_src"
 	"strings"
-	"fmt"
 )
 
 func main() {
