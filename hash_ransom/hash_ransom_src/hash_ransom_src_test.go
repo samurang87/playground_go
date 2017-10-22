@@ -1,8 +1,8 @@
 package hash_ransom
 
-import "testing"
 import (
 	"reflect"
+	"testing"
 )
 
 func TestCreateMaps(t *testing.T) {
