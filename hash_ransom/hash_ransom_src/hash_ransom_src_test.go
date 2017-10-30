@@ -46,17 +46,23 @@ func TestCreateMaps(t *testing.T) {
 
 func TestCompareMapsHappy(t *testing.T) {
 
-	var magazine = map[string]int{
+	var magazine = map[int]map[string]int{
 
-		"a": 3,
-		"b": 2,
-		"c": 1,
+		1: {
+
+			"a": 3,
+			"b": 2,
+			"c": 1,
+		},
 	}
 
-	var note = map[string]int{
+	var note = map[int]map[string]int{
 
-		"a": 3,
-		"b": 2,
+		1: {
+
+			"a": 3,
+			"b": 2,
+		},
 	}
 
 	result := CompareMaps(magazine, note)
@@ -70,18 +76,24 @@ func TestCompareMapsHappy(t *testing.T) {
 
 func TestCompareMapsKeyMissing(t *testing.T) {
 
-	var magazine = map[string]int{
+	var magazine = map[int]map[string]int{
 
-		"a": 3,
-		"b": 2,
-		"c": 1,
+		1: {
+
+			"a": 3,
+			"b": 2,
+			"c": 1,
+		},
 	}
 
-	var note = map[string]int{
+	var note = map[int]map[string]int{
 
-		"a": 3,
-		"b": 2,
-		"d": 3,
+		1: {
+
+			"a": 3,
+			"b": 2,
+			"d": 3,
+		},
 	}
 
 	result := CompareMaps(magazine, note)
@@ -93,20 +105,26 @@ func TestCompareMapsKeyMissing(t *testing.T) {
 
 }
 
-func TestCompareMapsInsufficientNumberOfWords(t *testing.T) {
+func TestCompareMapsNoHash(t *testing.T) {
 
-	var magazine = map[string]int{
+	var magazine = map[int]map[string]int{
 
-		"a": 3,
-		"b": 2,
-		"c": 1,
+		1: {
+
+			"a": 3,
+			"b": 2,
+			"c": 1,
+		},
 	}
 
-	var note = map[string]int{
+	var note = map[int]map[string]int{
 
-		"a": 3,
-		"b": 2,
-		"c": 3,
+		2: {
+
+			"a": 3,
+			"b": 2,
+			"c": 1,
+		},
 	}
 
 	result := CompareMaps(magazine, note)
@@ -115,5 +133,29 @@ func TestCompareMapsInsufficientNumberOfWords(t *testing.T) {
 
 		t.Errorf("Not equal! Expected %v, got %v", false, result)
 	}
+
+}
+
+func TestSubtractMapsHappy(t *testing.T) {
+
+	var magazine = map[int]map[string]int{
+
+		7: {
+
+			"a": 3,
+			"b": 2,
+			"c": 1,
+		},
+	}
+
+	var note = []string{"a", "a", "b"}
+
+	result := SubtractMap(magazine, note)
+
+	if result == false {
+
+		t.Errorf("Not equal! Expected %v, got %v", true, result)
+	}
+
 
 }

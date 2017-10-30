@@ -1,6 +1,8 @@
 package hash_ransom
 
-import "strings"
+import (
+	"strings"
+)
 
 func GetHash(word string) int {
 
@@ -41,6 +43,7 @@ func GetHash(word string) int {
 
 }
 
+
 func CreateMap(text_list []string) map[int]map[string]int {
 
 	text_map := make(map[int]map[string]int)
@@ -73,47 +76,36 @@ func CreateMap(text_list []string) map[int]map[string]int {
 
 }
 
-//func CreateMap(text_list []string) map[string]int {
-//
-//	text_map := make(map[string]int)
-//
-//	for _, word := range text_list {
-//
-//		if _, ok := text_map[word]; ok {
-//
-//			text_map[word]++
-//
-//		} else {
-//
-//			text_map[word] = 1
-//
-//		}
-//	}
-//
-//	return text_map
-//}
+func SubtractMap(magazine map[int]map[string]int, note_list []string) (result bool) {
 
-//func CompareMaps(magazine map[string]int, note map[string]int) (result bool) {
-//
-//	for key, _ := range note {
-//
-//		if val, ok := magazine[key]; ok {
-//
-//			if val < note[key] {
-//
-//				return false
-//			}
-//
-//		} else {
-//
-//			return false
-//		}
-//	}
-//
-//	return true
-//
-//}
+	for _, word := range note_list {
 
+		hash := GetHash(word)
+
+		if _, hash_ok := magazine[hash]; hash_ok {
+
+			if _, word_ok := magazine[hash][word]; word_ok {
+
+				magazine[hash][word] -= 1
+
+				if magazine[hash][word] < 0 {
+
+					return false
+				}
+
+			} else {
+
+				return false
+			}
+
+		} else {
+
+			return false
+		}
+	}
+
+	return true
+}
 
 func CompareMaps(magazine map[int]map[string]int, note map[int]map[string]int) (result bool){
 
