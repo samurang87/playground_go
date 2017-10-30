@@ -10,6 +10,7 @@ import (
 
 func main() {
 
+
 	reader := bufio.NewReader(os.Stdin)
 
 	lines := [][]string{}
@@ -20,6 +21,12 @@ func main() {
 		b, err := reader.ReadByte()
 		if err != nil {
 			if err == io.EOF {
+				if len(currentWord) > 0 {
+					currentLine = append(currentLine, string(currentWord))
+				}
+				if len(currentLine) > 0 {
+					lines = append(lines, currentLine)
+				}
 				break
 			}
 			panic(err)
@@ -38,7 +45,6 @@ func main() {
 		}
 	}
 
-	fmt.Println(len(lines))
 
 	magazine := hash_ransom.CreateMap(lines[1])
 
